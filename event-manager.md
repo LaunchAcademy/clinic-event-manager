@@ -19,7 +19,7 @@ From your challenges directory, run the following:
 et get event-manager
 cd event-manager
 yarn install
-yarn run start
+yarn run dev:client
 ```
 
 ## Instructions
