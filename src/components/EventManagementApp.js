@@ -1,8 +1,8 @@
 import React from 'react';
 
-import DogImage from "./DogImage"
 import EventTile from './EventTile';
 
+// const secretBansheeMessage = "I just want to be a pretty button"
 
 const EventManagementApp = props => {
 
@@ -13,16 +13,20 @@ const EventManagementApp = props => {
     { title: "Djinn Tech Support with the Qamar and Caliope", timePeriod: "4:00pm - 5:00pm", description: "Computers are down, let them work their magic.", eventType: "business" }
   ]
 
-  const eventTileComponents = events.map((eventObject) => {
-    return(
+  const eventComponents = events.map((eventObject) => {
+    return ( 
       <EventTile 
-        titleString={eventObject.title}
-        timePeriodString={eventObject.timePeriod}
-        descriptionString={eventObject.description}
-        eventTypeString={eventObject.eventType} 
+        title={eventObject.title} 
+        timePeriod={eventObject.timePeriod} 
+        description={eventObject.description} 
+        eventType={eventObject.eventType}
       />
     )
   })
+
+  const hello = () => {
+    return "hello"
+  }
 
   return (
     <div className="event-management-app">
@@ -30,12 +34,7 @@ const EventManagementApp = props => {
         Now viewing your upcoming events
       </h1>
 
-      {eventTileComponents}
-
-     
-      <DogImage />
-
-
+      {eventComponents}
     </div>
   )
 }

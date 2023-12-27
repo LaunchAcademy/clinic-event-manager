@@ -1,58 +1,30 @@
-import React, { useState } from "react"
-
+import React from "react"
 
 const EventTile = (props) => {
-    // console.log("Props of EventTile", props)
-
-    let eventTypeClassName = null
-    if (props.eventTypeString === "personal") {
-        eventTypeClassName = "green-bg"
-    } 
-
-    if (props.eventTypeString === "business") {
-        eventTypeClassName = "blue-bg"
-    }
-
-    if (props.eventTypeString === "business-casual") {
-        eventTypeClassName = "pink-bg"
-    }
-
-    // let completedStatus = false 
+  // const title = props.title
+  // const timePeriod = props.timePeriod
+  // const description = props.description
+  const { title, timePeriod, description, eventType } = props
 
 
-    const [completedStatus, setCompletedStatus] = useState(false)
+  let backgroundColor = ""
+  if (eventType === "personal") {
+    backgroundColor = "green-bg"
+  } 
+  if (eventType === "business-casual") {
+    backgroundColor= "pink-bg"
+  } 
+  if (eventType === "business") {
+    backgroundColor = "blue-bg"
+  }
 
-    const changeCompletedStatus = () => {
-        setCompletedStatus(true)
-        //    completedStatus = true
-    }
-
-    if (completedStatus === true) {
-        eventTypeClassName = "gray-bg"
-    }
-
-   
-
-
-    return (
-        <div className={eventTypeClassName}>
-
-            <h3>
-                {props.titleString}
-            </h3>
-
-            <p>
-                {props.timePeriodString}
-            </p>
-
-            <p> {props.descriptionString} </p>
-
-            <button onClick={changeCompletedStatus}>
-                Complete Event
-            </button>
-
-        </div>
-    )
+  return(
+    <div className={backgroundColor}>
+      <h4>{title}</h4>
+      <p>{timePeriod}</p>
+      <p>{description}</p>
+    </div>
+  )
 }
 
 export default EventTile
